@@ -1,0 +1,43 @@
+create table movie
+(m_name varchar(20) primary key,
+release_year int check(release_year>2000),
+budget int);
+
+create table Actor
+(a_name varchar(20) primary key,
+role varchar(20),
+charges int,
+a_address varchar(20));
+
+
+create table Producer
+(pid int primary key,
+pname varchar(20),
+p_address varchar(20));
+
+
+create table m_a_p
+(m_name varchar(20) references movie(m_name),
+a_name varchar(20) references actor(a_name),
+pid int references producer(pid));
+
+
+insert into movie values('RRR',2022,1000000);
+insert into actor values('Akshay','Hero',500000,'Delhi')
+insert into producer values(3,'Nagraj Manjule','Pune')
+
+
+----------
+Q3)
+1) select m_name from movie where budget in(select max(budget) from movie);
+2) select produces.pname,count(produces.pname),movie.release_year 
+from produces inner join m_a_p on produces.pid=m_a_p.pid 
+inner join movie on m_a_p.m_name=movie.m_name
+group by movie.release_year,produces.pname 
+having(count(produces.pname)>2);
+
+Q4)
+1) select max(budget) from movie where budget<(select max(budget) from movie);
+2) select a_name,count(a_name) from m_a_p group by a_name having count(a_name)=(select max(count(a_name)) from m_a_p group by a_name);
+4) select a_name,charges from actor where charges=(select max(actor.charges) from actor);
+5) select * from m_a_p where m_name in(select m_name from m_a_p where a_name='Akshay');
