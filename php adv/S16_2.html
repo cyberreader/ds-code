@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>Slip16</title>
+
+<script>
+	function validate(txt)
+	{
+		var xhttp = new XMLHttpRequest();
+
+		xhttp.open("get","S16_2.php?unm="+txt,true);
+		xhttp.send();
+
+		xhttp.onreadystatechange = function()
+		{
+			if(xhttp.readyState==4 && xhttp.status==200)
+			{
+				document.getElementById("xyz").innerHTML = xhttp.responseText;
+			}
+		}
+	}
+</script>
+</head>
+
+<body>
+<form>
+Enter Name <input type="text" name="txt" onkeyup="validate(txt.value)">
+</form>
+<div id="xyz" />
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding ='UTF-8' ?>
+
+<cricket>
+	<player>
+		<name>ST</name>
+		<runs>2000</runs>
+		<wickets>100</wickets>
+	</player>
+
+	<player>
+		<name>MD</name>
+		<runs>1500</runs>
+		<wickets>60</wickets>
+	</player>
+
+	<player>
+		<name>VK</name>
+		<runs>1000</runs>
+		<wickets>20</wickets>
+	</player>
+</cricket>

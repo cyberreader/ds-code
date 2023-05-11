@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>Ajax</title>
+<script>
+	function show(fname)
+	{
+		var xhttp = new XMLHttpRequest();
+
+		xhttp.open("get","S12_2.php",true);
+		xhttp.send();
+
+		xhttp.onreadystatechange = function()
+		{
+			if(xhttp.readyState==4 && xhttp.status==200)
+			{
+				document.getElementById("aa").innerHTML = xhttp.responseText;
+			}
+		}
+	}
+</script>
+</head>
+
+<body>
+<form>
+<input type="button" name="b1" value="Show File Data" onclick="show()">
+</form>
+<div id="aa" />
+</body>
+</html>

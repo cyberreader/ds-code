@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>Ajax</title>
+<script>
+	function show(uname,age,nat)
+	{
+		var xhttp = new XMLHttpRequest();
+
+		xhttp.open("get","S13_2.php?uname="+uname+"&age="+age+"&nat="+nat,true);
+		xhttp.send();
+
+		xhttp.onreadystatechange = function()
+		{
+			if(xhttp.readyState==4 && xhttp.status==200)
+			{
+				document.getElementById("aa").innerHTML = xhttp.responseText;
+			}
+		}
+	}
+</script>
+</head>
+
+<body>
+<form>
+Name <input type="text" name="uname"><br>
+Age <input type="text" name="age"><br>
+Nationality <input type="text" name="nat"><br>
+<input type="button" name="b1" value="Check" onclick="show(uname.value,age.value,nat.value)">
+</form>
+<div id="aa" />
+</body>
+</html>

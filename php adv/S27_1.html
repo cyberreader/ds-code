@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>Ajax</title>
+<script>
+	function factorial(no)
+	{
+		var xhttp = new XMLHttpRequest();
+
+		xhttp.open("get","S27_1.php?no="+no,true);
+		xhttp.send();
+
+		xhttp.onreadystatechange = function()
+		{
+			if(xhttp.readyState==4 && xhttp.status==200)
+			{
+				document.getElementById("aa").innerHTML = xhttp.responseText;
+			}
+		}
+	}
+</script>
+</head>
+
+<body>
+<form>
+Enter Number <input type="text" name="no"><br>
+<input type="button" name="b1" value="Show Factorial" onclick="factorial(no.value)">
+</form>
+<div id="aa" />
+</body>
+</html>

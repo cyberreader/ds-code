@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding ='UTF-8' ?>
+
+<sportsdb>
+	<sports>
+		<sport_no>1</sport_no>
+		<sport_name>Cricket</sport_name>
+	</sports>
+
+	<sports>
+		<sport_no>2</sport_no>
+		<sport_name>Football</sport_name>
+	</sports>
+
+	<sports>
+		<sport_no>3</sport_no>
+		<sport_name>BB</sport_name>
+	</sports>
+</sportsdb>
