@@ -1,0 +1,24 @@
+import java.util.Scanner;
+public class Slip_3_1_A {
+    static int temp;
+    public static void main(String agrs[]){
+        Scanner scan=new Scanner(System.in);
+        
+        System.out.print("Enter a number: ");
+        int num=scan.nextInt();
+        int sum=0,rem;
+        temp=num;
+        while(num>0){
+            rem=num%10;
+            sum=sum+(rem*rem*rem);
+            num=num/10;
+        }
+        if(sum==temp){
+            System.out.print("Number is Armstrong");
+        }
+        else{
+            System.out.print("Number is not Armstrong");
+        }
+        scan.close();
+    }
+}
