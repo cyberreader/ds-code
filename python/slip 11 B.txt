@@ -1,0 +1,46 @@
+from tkinter import Menu, Tk, mainloop
+
+def redcolor():
+    root.configure(background = 'red')
+def greencolor():
+    root.configure(background = 'green')
+def yellowcolor():
+    root.configure(background = 'yellow')
+def violetcolor():
+    root.configure(background = 'violet')
+def bluecolor():
+    root.configure(background = 'blue')
+def cyancolor():
+    root.configure(background = 'cyan')
+    
+root = Tk()
+root.title('COLOR MENU')
+
+menubar = Menu(root)
+
+color = Menu(menubar, tearoff = 0)
+menubar.add_cascade(label ='color', menu = color)
+color.add_command(label ='Red', command = redcolor,activebackground='red',
+                    activeforeground='cyan')
+
+color.add_command(label ='Green',command = greencolor,activebackground='green',
+                    activeforeground='blue')
+
+color.add_command(label ='Blue',command = bluecolor,activebackground='blue',
+                    activeforeground='yellow')
+
+color.add_command(label ='Yellow',command = yellowcolor,activebackground='yellow',
+                    activeforeground='blue')
+
+color.add_command(label ='Cyan',command = cyancolor,activebackground='cyan',
+                    activeforeground='red')
+
+color.add_command(label ='Violet',command = violetcolor,activebackground='violet',
+                    activeforeground='green')
+color.add_separator()
+color.add_command(label ='Exit',command = root.destroy)
+
+
+root.config(menu = menubar)
+mainloop()
+

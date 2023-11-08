@@ -1,0 +1,23 @@
+class person:
+    def __init__(self,name,address):
+        self.empname=name
+        self.address=address
+        
+    def display(self):
+        print('name : {}\taddress : {}\tsalary : {}'.format(self.empname,
+        self.address,a.getsalary()))
+    
+class employee(person):
+    def __init__(self, name, address,salary):
+        super().__init__(name, address)
+        self.salary=salary
+        
+    def getsalary(self):
+        return self.salary
+name1=input('enter name : ')
+address=input('enter address : ')
+salary=int(input('enter salary : '))
+a=employee(name1,address,salary)
+a.display()
+
+

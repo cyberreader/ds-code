@@ -1,0 +1,62 @@
+from tkinter import *
+from tkinter import messagebox 
+import math
+def clearAll() :
+    radiusField.delete(0, END)
+    volumeField.delete(0, END)
+
+    
+def checkError() : 
+    if (radiusField.get() == "") :
+        messagebox.showerror("Input Error")
+        clearAll()
+        return -1
+
+def getvolume() :
+    value = checkError()
+    if value == -1 :
+        return 
+    else :
+        radius0 = int(radiusField.get())
+        volume0=round((4/3)*math.pi*radius0*radius0*radius0,2)
+        
+        volumeField.insert(10, str(volume0))
+        
+if __name__ == "__main__" :
+
+    gui = Tk()
+    gui.configure(background = "light green")
+    gui.title("volume of sphere")
+    gui.geometry("425x200")
+ 
+ 
+ 
+    Radiuslabel = Label(gui, text = "given Radius", bg = "#00ffff")
+    volumelabel = Label(gui, text = "result volume", bg = "#00ffff") 
+    Radius1 = Label(gui, text = "radius", bg = "light green")
+    volume1 = Label(gui, text = "volume", bg = "light green")
+    
+    result = Button(gui, text = "Result", fg = "Black",
+    bg = "gray", command = getvolume)
+    clearAllEntry = Button(gui, text = "Clear All", fg = "Black",
+    bg = "Red", command = clearAll)
+
+    radiusField = Entry(gui)
+ 
+    volumeField = Entry(gui)
+
+Radiuslabel.grid(row = 0, column = 1)
+Radius1.grid(row = 1, column = 0)
+radiusField.grid(row = 1, column = 1)
+    
+    
+volumelabel.grid(row = 0, column = 4)
+volume1.grid(row = 1, column = 3)
+volumeField.grid(row = 1, column = 4)
+    
+result.grid(row = 4, column = 2)
+clearAllEntry.grid(row = 12, column = 2)
+
+gui.mainloop()
+
+

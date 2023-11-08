@@ -1,0 +1,30 @@
+import string,random
+from tkinter import *
+
+def password():
+    clearAll()
+    String = random.sample(string.ascii_letters, 6) + random.sample(string.digits, 4)
+    random.SystemRandom().shuffle(String)
+    password=''.join(String)
+    passField.insert(10, str(password))
+
+def clearAll() :
+    passField.delete(0, END)
+
+if __name__ == "__main__" :
+
+    gui = Tk()
+    gui.configure(background = "light green")
+    gui.title("random password")
+    gui.geometry("325x150")
+
+    passin = Label(gui, text = "Password", bg = "#00ffff").pack()
+    passField = Entry(gui);passField.pack()
+    
+    result = Button(gui,text = "Result",fg = "Black",
+                    bg = "gray", command = password).pack()
+    clearAllEntry = Button(gui,text = "Clear All",fg = "Black",
+                    bg = "Red", command = clearAll).pack() 
+
+
+gui.mainloop
